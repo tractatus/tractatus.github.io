@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Analysis
-permalink: /analysis/
+permalink: instaseq/analysis/
 nav_order: 2
 has_children: true
 ---

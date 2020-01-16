@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Registration
-permalink: /registration/
+permalink: instaseq/registration/
 parent: Analysis
 nav_order: 2
 ---

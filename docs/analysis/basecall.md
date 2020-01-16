@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Base calling
-permalink: /basecall/
+permalink: instaseq/basecall/
 parent: Analysis
 nav_order: 3
 ---

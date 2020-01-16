@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Alignment
-permalink: /align/
+permalink: instaseq/align/
 parent: Analysis
 nav_order: 4
 ---

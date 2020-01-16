@@ -1,6 +1,6 @@
 ---
 layout: page
 title: Protocol
-permalink: /protocol/
+permalink: instaseq/protocol/
 ---
 

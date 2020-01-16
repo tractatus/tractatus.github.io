@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Segmentation
-permalink: /segmentation/
+permalink: instaseq/segmentation/
 parent: Analysis
 nav_order: 1
 ---
