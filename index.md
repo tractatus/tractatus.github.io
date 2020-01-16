@@ -4,7 +4,7 @@
 
 layout: home
 title: Getting started
-permalink: /home/
+permalink: 
 ---
 
 # In situ transcriptome accessibility
@@ -13,7 +13,9 @@ permalink: /home/
 This site describes the details including protocol and analysis of INSTA-seq data.
 {: .fs-6 .fw-300 }
 
-[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/pmarsceill/just-the-docs){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } 
+
+<!---  [View it on GitHub](https://github.com/pmarsceill/just-the-docs){: .btn .fs-5 .mb-4 .mb-md-0 } -->
 
 ---
 ## Getting started
