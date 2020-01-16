@@ -1,0 +1,64 @@
+{
+  
+  "0": {
+    "title": "",
+    "content": "404 . Page not found :( . The requested page could not be found. .",
+    "url": "http://localhost:4000/404.html",
+    "relUrl": "/404.html"
+  }
+  ,"1": {
+    "title": "RBPs, secondary structures and modifications",
+    "content": "",
+    "url": "http://localhost:4000/rbp/",
+    "relUrl": "/rbp/"
+  }
+  ,"2": {
+    "title": "About",
+    "content": "Created by Daniel Fürth when a postdoc in Je H. Lee’s lab at Cold Spring Harbor Laboratory. .",
+    "url": "http://localhost:4000/about/",
+    "relUrl": "/about/"
+  }
+  ,"3": {
+    "title": "Alignment",
+    "content": "How to align to genome .",
+    "url": "http://localhost:4000/align/",
+    "relUrl": "/align/"
+  }
+  ,"4": {
+    "title": "Base calling",
+    "content": "",
+    "url": "http://localhost:4000/basecall/",
+    "relUrl": "/basecall/"
+  }
+  ,"5": {
+    "title": "Segmentation",
+    "content": "Segmentation of amplicons .",
+    "url": "http://localhost:4000/segmentation/",
+    "relUrl": "/segmentation/"
+  }
+  ,"6": {
+    "title": "Getting started",
+    "content": "In situ transcriptome accessibility . This site describes the details including protocol and analysis of INSTA-seq data. . Get started now View it on GitHub . . Getting started . Ordering reagents . Oligonucleotides . There are two set of oligonucleotides you need ot order. One set for Sequencing by ligation (SBL) and another set for library construction. Reverse probes are DNA:RNA chimeras and need to be ordered as RNA probes. Forward probes are ordered as DNA probes. . Sequencing-by-ligation (SBL) oligonucleotides . Probe name Base call Emission wavelength Direction Include in order . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | ATCGA/GT/GC/GA/TC/T | n/aGreen (510 - 559nm) Orange (560 - 609nm)Red (610 - 649nm)Near IR ( 650nm+) | Forward Reverse | | . | How to order from IDT: When clicking on the green buttons below a tab will automatically open to IDT and the bulk order input is automatically copied to your clipboard. Just press the blue bulk input button and paste (⌘ + V) in the bulk order that is now in your clipboard. | . DNA oligo order RNA oligo order . | | . ⌘ + C and go to IDT DNA oligo | ⌘ + C and go to IDT RNA oligo | . Library construction oligonucleotides . The following oligos contains primers for reverse transcription, RCA, sequencing primers for in situ sequencing, pulldown oligos. . Probe name Sequence 5’-3’ Scale Purification . Anchored oligodT10 | /5Phos/CGGGAACGCTGATTTTTTTTTT(V1:33333400)(N1:25252525) | 100nm | STD | . RCA oligodT10 | AAAAAATCAGCGTTCC*C*G | 100nm | STD | . Cy5 adapter probe | /5TYE665/CGGGAACGCTGATTTTTTTTTT | 100nm | HPLC | . SeqPrimer R01 | /5Phos/CGGGAACGCTGATTTTTTTTTT | 100nm | HPLC | . SeqPrimer R02 | /5Phos/GGGAACGCTGATTTTTTTTT | 100nm | HPLC | . SeqPrimer R03 | /5Phos/GGAACGCTGATTTTTTTT | 100nm | HPLC | . Pulldown oligodT | /5BiosG/CGGGAACGCTGATTTTTTTTTT | 100nm | STD | . Enzymes . This list is good for 40 libraries with phi29 being the limited volume. . Enzyme Vendor Catalog number URL ~Cost (per/rxm*) . TURBO DNA-free™ Kit | Invitrogen™ | AM1907 | www.thermofisher.com | $127 ($1.32) | . M-MuLV Reverse Transcriptase | Qiagen | P7040L | www.enzymatics.com | $371 ($1.855) | . SUPERase RNase Inhibitor | ThermoFisher | AM2696 | www.thermofisher.com | $448 ($2.24) | . E.coli RNase H (rnh) | Qiagen | Y9220L | www.enzymatics.com | $371 ($0.47) | . RNase, DNase-free, HC | Roche | 11579681001 | www.sigmaaldrich.com | $225 ($5.625) | . CircLigase II | Lucigen | CL9021K | www.lucigen.com | $199 ($9.95) | . phi29 HC | Qiagen | P7020-HC-L | www.enzymatics.com | $371 ($9.275) | .   |   |   |   | Σ $2112 ($30.735) | . * Single reaction is caclulated based on 50 µl total volume. . Costs can further be reduced by switching over to: . QualiPhi phi29 [~$176 ($1) for 100 µl] instead of high-concentration phi29 from Enzymatics [~$371 ($9.275) for 20 µl] | as well as buying larger stock CL9025K of CircLigase II [$832 ($8.32) for 50 µl versus $199 ($9.95) for 10 µl]. | . Then the cost per library becomes $20.83. . But the major drop in library cost happens when moving over to non-enzymatic cyclization of cDNA using biocompatible triazole generated through click circularization. . Enzymes for in situ sequencing . Enzyme Vendor Catalog number URL ~Cost (per/cycle*) . T4 DNA ligase | Qiagen | L6030-LC-L | www.enzymatics.com | $371 ($0.94) | . E.coli RNase H2 (rnhB) | NEB | M0288L | www.neb.com | $296 ($5.92) | . E. coli Endonuclease V | NEB | M0305S | www.neb.com | $76 ($3.04) | . * Single reaction is caclulated based on 50 µl total volume. . Crosslinkers, nucleotides and click reagents. . Reagent Vendor Catalog number URL ~Cost (per/rxm*) . NHS-PEG9-NHS | Thermo Scientific | 21582 | www.thermofisher.com | $404 ($1.175†) | . 100µmol dNTP Solution Mix | Qiagen | N2050L | www.enzymatics.com | $371 ($0.371) | . 4 mM Aminoallyl dUTP | Anaspec | AS-83203 | www.anaspec.com | $163 ($0.326) | . Dynabeads™ M-280 Streptavidin | ThermoFisher | 11206D | www.thermofisher.com | $1900 ($47.5) | . BTTAA | Click Chemistry Tools | 1236-100 | www.clickchemistrytools.com | $129 ($0.02) | . 3’-Azido-ddNTP Set | TriLink Biotech | K-1006 | www.trilinkbiotech.com | $689 ($2.16) | . * Single reaction is caclulated based on 50 µl total volume. . † NHS-PEG9-NHS when diluted in DMSO has a limited shelf-life of a couple of weeks at -20°C hence stock usually goes bad before used up. . Buffers etc. .",
+    "url": "http://localhost:4000/home/",
+    "relUrl": "/home/"
+  }
+  ,"7": {
+    "title": "Analysis",
+    "content": "Analysis . Step-by-step tutorial on how to analyze data. . .",
+    "url": "http://localhost:4000/analysis/",
+    "relUrl": "/analysis/"
+  }
+  ,"8": {
+    "title": "Protocol",
+    "content": "",
+    "url": "http://localhost:4000/protocol/",
+    "relUrl": "/protocol/"
+  }
+  ,"9": {
+    "title": "Registration",
+    "content": "Registration .",
+    "url": "http://localhost:4000/registration/",
+    "relUrl": "/registration/"
+  }
+  
+}
