@@ -235,6 +235,9 @@ If you are performing CuAAC circularization then the reverse transcriptase mix l
 | 2 µl | SUPERase RNase Inhibitor (20 U/μl) | AM2694, Invitrogen | 0.2 U/μl |
 | 10 µl | M-MuLV RT (100 U/μl) | P7040L, Qiagen | 5 U/μl |
 
+Make sure to seal the sample with parafilm and include a damp kimtech wipe so the sample doesnt dry out.
+If the sample would dry out during RT there is no point in continuing and you can throw away the sample. Drying out during other overnight incubations such as the phi29 RCA amplification is not .
+
 ### cDNA fixation `1h`
 
 In all of the above reactions aa-dUTP is included for subsequent crosslinking of the cDNA to free primary amines using NHS-PEG9-NHS (BSPEG9).
@@ -394,6 +397,28 @@ Wash by incubating in 2xSSC at 37°C for 30 min. Let cool down to room temperatu
 If you used a RT primer with 5'PO4 group then you can circularize the cDNA enzymatically using CircLigase II. 
 Make sure you have removed any remaining RNA in the tissue during the previous step since RNA will inhibit CircLigase II from circularization of cDNA.
 
+Prepare the CircLigase II buffer on ice and preincubate the sample:
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 130 µl | Nuclease-free water |  10977015, Invitrogen  | NA |
+| 20 µl | 10x CircLigase buffer | Lucigen  | 1x |
+| 10 µl | 50 mM MnCl2 |  Lucigen  |  2.5 mM |
+| 13 µl | 5 M Betaine |  Lucigen  |  0.5 mM |
+
+
+While the sample is preincubating on ice with the CirclIgase buffer prepare another tube with the enzyme. Once the enzyme is added make sure to pipette mix 10 times with the 200 µl pipette.
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 128 µl | Nuclease-free water |  10977015, Invitrogen  | NA |
+| 20 µl | 10x CircLigase buffer | Lucigen  | 1x |
+| 10 µl | 50 mM MnCl2 |  Lucigen  |  2.5 mM |
+| 13 µl | 5 M Betaine |  Lucigen  |  0.5 mM |
+| 2 µl | CircLigase II 100 U/µl |  Lucigen  |  1 U/µl |
+
+Incubate at 60°C for 2h.
+
 ### RCA primer hybridization `1.5h`
 
 If you included RCA primer in the click reaction then you dont have to do this unless you noticed that rolonies are fuzzy and not as compact then optimization of the RCA primer hybdirization condition could be needed.
@@ -460,6 +485,53 @@ Aspirate and wash on ice with 1xPBS. It is important to make sure you have remov
 If formamide inhibited RCA then you will still see some amplicons but they will be small and not bright.
 
 ### Rolling Circle Amplification (RCA) `O/N`
+
+Make sure formamide is not remaining in the well, especially at the edges.
+Place the sample on ice and make first a buffer only reaction mix:
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 180 µl | Nuclease-free water |  10977015, Invitrogen  | NA |
+| 20 µl | 10x phi29 buffer | Qiagen  | 1x |
+
+And incubate the sample on ice in this buffer while you prepare the phi29 reaction mix on ice:
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 170 µl | Nuclease-free water |  10977015, Invitrogen  | NA |
+| 20 µl | 10x phi29 buffer | Qiagen  | 1x |
+| 2 µl | 25 mM dNTP |  Qiagen  |  250 μM |
+| 2 µl | 4 mM aa-dUTP |  Qiagen  | 40 μM |
+| 2 µl | HC phi29 |  Qiagen  |  1 U/µl |
+| 4 µl | Chimeric phi29 |  Expedeon  |  0.2 U/µl |
+
+Aspirate and ad the phi29 reaction mix on ice and let it sit on ice for 5 minutes before you move it into 30°C incubator and let it incubate for a minimum of 16h.
+
+
+### cDNA fixation `1h`
+
+In all of the above reactions aa-dUTP is included for subsequent crosslinking of the cDNA to free primary amines using NHS-PEG9-NHS (BSPEG9).
+This was based on initial concerns with FISSEQ that cDNA was difusing. However, in our experience diffusion is not a big problem as much as fixation can inhibit subsequent enzymatic steps.
+For example at the average cDNA length of 100-80 nt and an incorporation rate of ~30/kb for aa-dUTP would mean about three aminoallyl groups are incorporated for each cDNA molecule.
+aa-dUTP incorporation into cDNA and subsequent fixation after RT can therefore be ommited.
+
+**NHS-PEG9-NHS fixation**
+
+Crosslinker Stock Solution: 100 mg of BSPEG9 add ~465µL DMSO to make 565µL total of 250 mM.
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 980 µl  |1xPBS pH 8 |  CHP-300, Boston BioProducts | NA |
+| 20 µl | BSPEG9 250mM | BP-21504, BroadPharma | 5 mM |
+
+Immediatly ad the reaction to the sample after aspirating the RT reaction (NHS ester half-life 1 hour at pH 8 and only 10 minutes at pH 8.6). 
+NHS ester-activated crosslinkers react with primary amines best in slightly alkaline conditions it is therefore important to use pH 8 1xPBS when dissolving the DMSO stock for the reaction.
+
+Incubate the sample at room temperature for 1h.
+
+#### Quenching `30 min`
+
+To avoid BSPEG9 to react with enzyme in subsequent steps quench the reaction by aspirating and ad 1 M Tris to the sample and incubate at room temperature for 30 min.
 
 ---
 # _Ex situ_ NGS library preparation.
