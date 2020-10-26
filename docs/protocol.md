@@ -4,7 +4,7 @@ title: Protocol
 permalink: instaseq//protocol/
 ---
 
-# Protocol
+<h1> Protocol</h1>
 
 The following protocol describes library construction in both tissue and cell culture. 
 
@@ -17,6 +17,11 @@ The first time you try it we also suggest using a minimal version of the protoco
 
 Gradually as you become more and more familiar with the protocol your amplicon count will also go up.
 
+* TOC
+{:toc}
+
+---
+# _In situ_ cDNA library preparation.
 ---
 
 ### Fixation `10-20 min`
@@ -94,7 +99,7 @@ Optional
 
 Incubate for 1hr at 37°C.
 
-### Inactivation of DNase I and extensive wash.
+#### Inactivation of DNase I and extensive wash.
 
 There are two ways to inactivate DNase I. Either use the the inactivation reagent provided in the kit or use ice cold 0.5 M EDTA, pH 8.0.
 
@@ -155,9 +160,9 @@ Thaw on ice:
 
 | Reagent | Vendor |
 | :--- | :--- |
-| 10x RT buffer |  |
-| dNTP mix |  |
-| dUTP mix |  |
+| 10x RT buffer | P7040L, Qiagen |
+| dNTP mix 25 mM | N2050L, Qiagen |
+|  aa-dUTP 4 mM | AS-83203, Anaspec |
 
 
 Prepare 2 eppendorf tubes with:
@@ -175,19 +180,19 @@ Prepare 2 eppendorf tubes with:
 
 **Buffer wash**
 
-| Reagent | Vendor | Amount | Concentration |
+| Amount | Reagent | Vendor  | Concentration |
 | :--- | :--- | :--- |  :--- | 
-| Nuclease-free water | 10977015, Invitrogen |  180 µl  | NA |
-| 10x RT buffer | P7040L, Qiagen | 20 µl | 1x |
+|  180 µl  | Nuclease-free water | 10977015, Invitrogen | NA |
+| 20 µl  | 10x RT buffer | P7040L, Qiagen | 1x |
 
 **Reverse transcriptase reaction mix**
 
-| Reagent | Vendor | Amount | Concentration |
+| Amount | Reagent | Vendor  | Concentration |
 | :--- | :--- | :--- |  :--- | 
-| Nuclease-free water | 10977015, Invitrogen |  159 µl  | NA |
-| 10x RT buffer | P7040L, Qiagen | 20 µl | 1x  |
-| dNTP mix 25 mM | N2050L, Qiagen | 2 µl | 250 μM |
-| aa-dUTP 4 mM | AS-83203, Anaspec | 2 µl | 40 μM |
+|  159 µl  | Nuclease-free water | 10977015, Invitrogen | NA |
+| 20 µl | 10x RT buffer | P7040L, Qiagen  | 1x  |
+| 2 µl | dNTP mix 25 mM | N2050L, Qiagen  | 250 μM |
+| 2 µl | aa-dUTP 4 mM | AS-83203, Anaspec  | 40 μM |
 
 Place the two tubes on ice and aspirate and ad the buffer wash to the sample. From the freezer take out SUPERase and M-MuLV reverse transcriptase and ad to the ice cold reverse transcriptase reaction mix:
 
@@ -205,12 +210,12 @@ Place the two tubes on ice and aspirate and ad the buffer wash to the sample. Fr
 
 | Reagent | Vendor | Amount | Concentration |
 | :--- | :--- | :--- |  :--- | 
-| Nuclease-free water | 10977015, Invitrogen |  159 µl  | NA |
-| 10x RT buffer | P7040L, Qiagen | 20 µl | 1x  |
-| dNTP mix 25 mM | N2050L, Qiagen | 2 µl | 250 μM |
-| aa-dUTP 4 mM | AS-83203, Anaspec | 2 µl | 40 μM |
-| SUPERase RNase Inhibitor (20 U/μl) | AM2694, Invitrogen | 2 µl | 0.2 U/μl |
-| M-MuLV RT (100 U/μl) | P7040L, Qiagen | 10 µl | 5 U/μl |
+| 159 µl  | Nuclease-free water | 10977015, Invitrogen | NA |
+| 20 µl | 10x RT buffer | P7040L, Qiagen | 1x  |
+| 2 µl | dNTP mix 25 mM | N2050L, Qiagen | 250 μM |
+| 2 µl | aa-dUTP 4 mM | AS-83203, Anaspec | 40 μM |
+| 2 µl | SUPERase RNase Inhibitor (20 U/μl) | AM2694, Invitrogen | 0.2 U/μl |
+| 10 µl | M-MuLV RT (100 U/μl) | P7040L, Qiagen | 5 U/μl |
 
 Use the 200 μl and pipette mix ten times and aspirate the sample and ad the ice cold enzyme mix onto the sample and let it sit on ice for 5 min. 
 Place the sample for reverse transcription at 37°C for 2h - Over night.
@@ -221,13 +226,13 @@ If you are performing CuAAC circularization then the reverse transcriptase mix l
 
 | Reagent | Vendor | Amount | Concentration |
 | :--- | :--- | :--- |  :--- | 
-| Nuclease-free water | 10977015, Invitrogen |  157 µl  | NA |
-| 10x RT buffer | P7040L, Qiagen | 20 µl | 1x  |
-| dNTP mix 25 mM | N2050L, Qiagen | 2 µl | 250 μM |
-| aa-dUTP 4 mM | AS-83203, Anaspec | 2 µl | 40 μM |
-| 3'-Azido-ddNTP 25 mM | K-1005, TriLink | 2 µl | 250 μM |
-| SUPERase RNase Inhibitor (20 U/μl) | AM2694, Invitrogen | 2 µl | 0.2 U/μl |
-| M-MuLV RT (100 U/μl) | P7040L, Qiagen | 10 µl | 5 U/μl |
+|  157 µl  | Nuclease-free water | 10977015, Invitrogen | NA |
+| 20 µl | 10x RT buffer | P7040L, Qiagen | 1x  |
+| 2 µl | dNTP mix 25 mM | N2050L, Qiagen | 250 μM |
+| 2 µl | aa-dUTP 4 mM | AS-83203, Anaspec | 40 μM |
+| 2 µl | 3'-Azido-ddNTP 25 mM | K-1005, TriLink | 250 μM |
+| 2 µl | SUPERase RNase Inhibitor (20 U/μl) | AM2694, Invitrogen | 0.2 U/μl |
+| 10 µl | M-MuLV RT (100 U/μl) | P7040L, Qiagen | 5 U/μl |
 
 ### cDNA fixation `1h`
 
@@ -240,17 +245,17 @@ aa-dUTP incorporation into cDNA and subsequent fixation after RT can therefore b
 
 Crosslinker Stock Solution: 100 mg of BSPEG9 add ~465µL DMSO to make 565µL total of 250 mM.
 
-| Reagent | Vendor | Amount | Concentration |
+| Amount | Reagent | Vendor | Concentration |
 | :--- | :--- | :--- |  :--- | 
-|1xPBS pH 8 |  CHP-300, Boston BioProducts | 980 µl  | NA |
-| BSPEG9 250mM | BP-21504, BroadPharma | 20 µl | 5 mM |
+| 980 µl  |1xPBS pH 8 |  CHP-300, Boston BioProducts | NA |
+| 20 µl | BSPEG9 250mM | BP-21504, BroadPharma | 5 mM |
 
 Immediatly ad the reaction to the sample after aspirating the RT reaction (NHS ester half-life 1 hour at pH 8 and only 10 minutes at pH 8.6). 
 NHS ester-activated crosslinkers react with primary amines best in slightly alkaline conditions it is therefore important to use pH 8 1xPBS when dissolving the DMSO stock for the reaction.
 
 Incubate the sample at room temperature for 1h.
 
-### Quenching `30 min`
+#### Quenching `30 min`
 
 To avoid BSPEG9 to react with enzyme in subsequent steps quench the reaction by aspirating and ad 1 M Tris to the sample and incubate at room temperature for 30 min.
 
@@ -258,12 +263,12 @@ To avoid BSPEG9 to react with enzyme in subsequent steps quench the reaction by 
 
 This step only applies if you intend to use CircLigase II since the enzyme is an RNA ligase removing RNA from the cell is necessary otherwise very few cDNAs will be circularized.
 
-| Reagent | Vendor | Amount | Concentration |
+| Amount | Reagent | Vendor | Concentration |
 | :--- | :--- | :--- |  :--- | 
-| Nuclease-free water |  10977015, Invitrogen  | 165 µl  | NA |
-| 10x RNase H1 buffer | Y9220L, Qiagen | 20 µl | 1x |
-| RNase, DNase-free 0.5 μg/ul | 11119915001, Roche | 5 µl | 12.5 ng/µl |
-| RNase H1 (5 U/µl) | Y9220L, Qiagen | 10 µl | 0.25 U/µl |
+| 165 µl | Nuclease-free water |  10977015, Invitrogen   | NA |
+| 20 µl | 10x RNase H1 buffer | Y9220L, Qiagen  | 1x |
+| 5 µl | RNase, DNase-free 0.5 μg/ul | 11119915001, Roche | 12.5 ng/µl |
+| 10 µl | RNase H1 (5 U/µl) | Y9220L, Qiagen | 0.25 U/µl |
 
 Incubate at 37°C for 1h.
 
@@ -272,6 +277,121 @@ Wash extensively three times in ice cold nuclease-free water.
 ### Click circularization and RCA primer hybridization `1h`
 
 This step only applies if you intend to circularize cDNA through CuAAC. To do this you need to have hybridized with 5'propargyl primer and incorporated 3'-azido-ddNTP during RT or have tailed the cDNA with Terminal Transferase (TdT).
+
+Prepare the following stock solutions fresh from powder:
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">1</div>  
+
+**20 mM CuSO4 stock**
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 2.3 ml | Nuclease-free water |  10977015, Invitrogen  | NA |
+| 11.5 mg | CuSO4 |  c8027, SigmaAldrich  | 20 mM |
+
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">2</div>  
+
+**100 mM BTTAA stock**
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 100 µl | Nuclease-free water |  10977015, Invitrogen   | NA |
+| 4.3 mg | BTTAA |  CLK-067-100, JenaBiosciences  | 100 mM |
+
+
+Take 13 µl of the BTTAA solution and mix it with 13 µl CuSO4 solution: 
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 13 µl | 20 mM  CuSO4 |  c8027, SigmaAldrich  | 10 mM |
+| 13 µl | 100 mM BTTAA |  CLK-067-100, JenaBiosciences   | 50 mM |
+
+
+Immediately when BTTAA is added to CuSO4 you should see a dark blue shift in color. Let sit while you prepare 10% formamide in 2xSSC with 1 µM of RCA primer: 
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">3</div>  
+
+| Amount | Reagent | Vendor  | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 137 µl| 2xSSC (pre-dilute 20xSSC) |  AM9770, Invitrogen   | NA |
+| 20 µl | Formamide |  75-12-7, Acros  | 10% |
+| 2 µl | RCA primer |  100 µM	AAAAAATCAGCGTTCC*C*G IDT   | 1 µM |    
+
+Now prepare 300 mM sodium ascorbate stock:
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">4</div>  
+
+**300 mM Sodium ascorbate stock**
+
+| Reagent | Vendor | Amount | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| Nuclease-free water |  10977015, Invitrogen  | 1 ml | NA |
+| (+)-Sodium L-ascorbate |  a4034, SigmaAldrich  | 60 mg | 300 mM |    
+
+Sodium ascorbate oxidizes, so from now work quickly (maximum 5 min).
+
+When the sodium ascorbate is dissolved in water take 13 ul and ad the to CuSO4 + BTTAA reaction mix. You should see an immediate color shift from dark blue to transparent.
+
+Now take the 39 ul of CuSO4 + BTTAA + Sodium Ascorbate and ad to the RCA primer mix:
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 13 µl | 20 mM  CuSO4 |  c8027, SigmaAldrich  | 1.3 mM |
+| 13 µl | 100 mM BTTAA |  CLK-067-100, JenaBiosciences  |  6.5 mM |
+| 13 µl | 300 mM Sodium ascorbate |  a4034, SigmaAldrich  |  19.5 mM |
+| 20 µl | Formamide |  75-12-7, Acros  | 10% |
+| 137 µl | 2xSSC (pre-dilute 20xSSC) |  AM9770, Invitrogen  | NA |
+|  2 µl   | RCA primer |  100 µM	AAAAAATCAGCGTTCC*C*G IDT  | 1 µM |    
+
+
+Degas the reaction by submerging the nozzle and press lightly on the argon can valve and let it bubble for 2-3 seconds.
+Ad the reaction onto the sample and degas the chamber and seal with parafilm. Incubate at 37°C for 30 min-1hr.
+
+### CircLigase II circularization `2h`
+
+If you used a RT primer with 5'PO4 group then you can circularize the cDNA enzymatically using CircLigase II. 
+Make sure you have removed any remaining RNA in the tissue during the previous step since RNA will inhibit CircLigase II from circularization of cDNA.
+
+---
+# _Ex situ_ NGS library preparation.
+---
 
 ### Tissue or cell lysis `10-20 min`
 
