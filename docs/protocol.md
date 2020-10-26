@@ -20,6 +20,7 @@ Gradually as you become more and more familiar with the protocol your amplicon c
 * TOC
 {:toc}
 
+
 ---
 # _In situ_ cDNA library preparation.
 ---
@@ -278,6 +279,8 @@ Wash extensively three times in ice cold nuclease-free water.
 
 This step only applies if you intend to circularize cDNA through CuAAC. To do this you need to have hybridized with 5'propargyl primer and incorporated 3'-azido-ddNTP during RT or have tailed the cDNA with Terminal Transferase (TdT).
 
+Make sure you have carefully washed away the remaining RT reaction from the sample since free 3'Azido-ddNTP will react with 5'propargyl.
+
 Prepare the following stock solutions fresh from powder:
 
 <div style="border-radius: 50%;
@@ -384,10 +387,79 @@ Now take the 39 ul of CuSO4 + BTTAA + Sodium Ascorbate and ad to the RCA primer 
 Degas the reaction by submerging the nozzle and press lightly on the argon can valve and let it bubble for 2-3 seconds.
 Ad the reaction onto the sample and degas the chamber and seal with parafilm. Incubate at 37°C for 30 min-1hr.
 
+Wash by incubating in 2xSSC at 37°C for 30 min. Let cool down to room temperature and aspirate and do quick 2xSSC wash 2-3 times.
+
 ### CircLigase II circularization `2h`
 
 If you used a RT primer with 5'PO4 group then you can circularize the cDNA enzymatically using CircLigase II. 
 Make sure you have removed any remaining RNA in the tissue during the previous step since RNA will inhibit CircLigase II from circularization of cDNA.
+
+### RCA primer hybridization `1.5h`
+
+If you included RCA primer in the click reaction then you dont have to do this unless you noticed that rolonies are fuzzy and not as compact then optimization of the RCA primer hybdirization condition could be needed.
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">1</div> 
+
+**30% formamide, 2xSSC, RCA primer hybridization** 
+
+| 138 µl | 2xSSC (pre-dilute 20xSSC) |  AM9770, Invitrogen  | NA |
+| 60 µl | Formamide |  75-12-7, Acros  | 10% |
+|  2 µl   | RCA primer |  100 µM	AAAAAATCAGCGTTCC*C*G IDT  | 1 µM |   
+
+Incubate at 60°C for 1h.
+
+Aspirate and add:
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">2</div> 
+
+**10% formamide, 2xSSC wash** 
+
+| 180 µl | 2xSSC (pre-dilute 20xSSC) |  AM9770, Invitrogen  | NA |
+| 20 µl | Formamide |  75-12-7, Acros  | 10% |
+
+Incubate at 60°C for 15 min.
+
+Aspirate and add:
+
+<div style="border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 18px Arial, sans-serif; ">3</div> 
+
+**2xSSC wash** 
+
+| 200 µl | 2xSSC (pre-dilute 20xSSC) |  AM9770, Invitrogen  | NA |
+
+Incubate at 60°C for 15 min.
+
+Aspirate and wash on ice with 1xPBS. It is important to make sure you have removed the formamide since residues at the edges of the well will inhibit RCA.
+If formamide inhibited RCA then you will still see some amplicons but they will be small and not bright.
+
+### Rolling Circle Amplification (RCA) `O/N`
 
 ---
 # _Ex situ_ NGS library preparation.
@@ -402,3 +474,36 @@ Make sure you have removed any remaining RNA in the tissue during the previous s
 ### NGS library prep using Nextera FLEX
 
 ### NGS sequencing on MiSeq
+
+# Stock buffers
+
+**DEPC-1xPBS**
+
+| Amount | Reagent | Vendor  | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 5 ml | 10xPBS |  AM9770, Invitrogen   | NA |
+| 45 ml | DEPC-treated water |  AM9770, Invitrogen   | NA |
+
+**2xSSC**
+
+| Amount | Reagent | Vendor  | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 5 ml | 20xSSC|  AM9770, Invitrogen   | NA |
+| 45 ml | Nuclease-free water |  AM9770, Invitrogen   | NA |
+
+**10% formamide, 2xSSC**
+
+| Amount | Reagent | Vendor  | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 5 ml | Formamide |  75-12-7, Acros  | 10% |
+| 5 ml | 20xSSC|  AM9770, Invitrogen   | NA |
+| 40 ml | Nuclease-free water |  AM9770, Invitrogen   | NA |
+
+**30% formamide, 2xSSC**
+
+| Amount | Reagent | Vendor  | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 15 ml | Formamide |  75-12-7, Acros  | 10% |
+| 5 ml | 20xSSC|  AM9770, Invitrogen   | NA |
+| 30 ml | Nuclease-free water |  AM9770, Invitrogen   | NA |
+
