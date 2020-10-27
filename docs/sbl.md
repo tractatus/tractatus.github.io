@@ -8,17 +8,102 @@ permalink: /sbl/
 
 Sequencing by ligation has a lot of small quirks to it that sometimes are not appreciated. This page cover some of those aspects with a special focus on how to trouble-shoot.
 
-## Difference between cPAL, SOLiD and PRICKLi.
+* TOC
+{:toc}
 
-The most basic scheme of sequencing by ligation was commercialized by Complete Genomics and is called Combinatorial Probe-Anchor Ligation (cPAL) sequencing.
-In cPAL a sequencing primer known as the anchor primer is extended by ligation of a set of competing probes interrogating a specific position away from the ligation junction. Each base position is represented by a specific fluorescent probe. This scheme is straighforward but requires 4 x N probes to be synthesized, where N is number of positions interrogated. Each ligation cycle extends a new sequencing primer so after each image is taken the entire sequencing primer is stripped and a new primer is hybridized.
+### Terminology
 
-SOLiD (Sequencing by Oligonucleotide Ligation and Detection) was a method commercialized by Applied Biosystems that overcame the issue by being able to extend the same sequencing primer sequentially through repeated ligation cycles. The way SOLiD overcame this was to make use of a chemically cleavable phosphoramidite probe that could be cleaved with a mild oxidizing agent such as aqueous silver nitrate leaving free 5'PO4 ends for subsequent ligation cycles to extend. In this scheme it is common to seperate the concept of a round to mean hybridization round and the concept of cycle to mean ligation cycle. SOLiD would achieve reads by extending and cleaving a single sequencing primer and then once the highest read length was achieved the entire extended primer complex would be stripped away and a new _recessed_ sequencing primer would be hybridized and extended.
+`In situ amplicon`: a diffraction limited spot created here by rolling circle amplification (RCA) hence it is a rolling circle product (RCP).
 
-Traditionally five hybridization rounds was performed with seven ligation cycles giving a read length of 5 x 7 = 35bp.
+`In situ sequencing adapter (ISSA)`: the 5'overhang adapter of the reverse transcription primer later on becomes the target for the sequencing primer.
 
-PRICKLi is simply an enzymatic way to achieve similar SBL primer extension, cleave, re-ligate as SOLiD but with using cheap off-shelf oligonucleotide modifications. 
-The added twist is the trick to piggy back on the improved confocal imaging and do multiple base calls by color multiplexing similar like Illumina NextSeq but instead of saving on laser cost the free fluorescent channels are used to encode directionality since SBL, unlike SBS, can sequence from both ends of the primer.
+`Sequencing primer`: an oligonucleotide capable of being extended on both ends usually targeting a region in the ISSA. At each hybridization round a new sequencing primer is hybridized after the previous one is removed. The new sequencing primer is usually a recessed version of the previous one. The primer rounds can continue to recess until the limit of stringent hybdirization is reached which is usually around 12 nt length.
+
+`Round`: a hybridization round is started anytime the ssDNA RCP is stripped and a new sequencing primer is hybridized against the adapter region of the RCP.
+
+`Cycle`: a ligation cycle is anytime the sequencing primer is extended by chemical ligation.
+
+`Stripping`: the process of removing the entire sequencing primer from the ssDNA amplicon
+
+`Base call`: the act and algorithm of assigning a determined nucleotide base to a single amplicon based on the fluorescent signal read out.
+
+`In situ sequencing run`: the complete set of base calls made during _N_ rounds and _M_ ligation cycles.
+
+`Forward reads`: reads extending the sequencing primer in the 5'-3' direction of the sequencing template. For cDNA sequencing of in situ amplicons this means sequencing at the cDNA synthesis stop site.
+
+`Reverse reads`: reads extending the sequencing primer in the 3'-5' direction of the sequencing template. For cDNA sequencing of in situ amplicons this means sequencing at the reverse transcription primer annealing site.
+
+## Reagents.
+
+### Stripping buffer
+
+First prepare 0.05% (vol/vol) Triton X-100:
+
+**0.05% (vol/vol) Triton X-100**
+
+| Amount | Reagent | Final concentration |
+| 8.4 ml  | 0.3% Triton (vol/vol) used for permeabilization | NA |
+| 41.6 ml  | Nuclease-free water | NA |
+
+From this stock aliquot and freeze single use stripping buffers.
+
+**80% FA stripping buffer**
+
+| Amount | Reagent | Final concentration |
+| :--- | :--- | :--- |
+| 160 µl | [Hi-Di Formamide](https://www.thermofisher.com/order/catalog/product/4311320 "Hi-Di Formamide"), 4311320, Applied Biosys. | 80% (vol/vol) |
+| 40 µl  | 0.05% (vol/vol) Triton X-100 | 0.01% (vol/vol) |
+
+Store in aliquots in -20 and thaw just before single use.
+
+There is a common myth that all formamide is the same. <br>This can be true for less sensitive assays but when you really want to remove an extended sequencing primer that can be over 50 nt in length the purity of the formamide will matter. 
+
+A standard trick is to put the formamide bottle in -20 and then aspirate the supernatant that doesnt freeze and throw away (ionized formamide). 
+While this can work sometimes we rather figured out that the best performance in terms of reliability is to use aliquots of  highly deionized formamide (Hi-Di Formamide) that are usually on capillary electrophoresis systems for Sanger sequencing. 
+
+## Protocol.
+
+### Visual inspection of cDNA libraries.
+
+When inspecting newly made libraries there are some quality markers you want to check that will tell you how clean the in situ sequencing will be.
+First, brightness of the amplicon is an important parameter. Ligation to a sequencing primer will not be as bright as direct fluorescent hybridization and at every subsequent ligation cycle the signal diminishes. 
+
+**_Brightness_**. Think about it as a finite resource where the brightness of the amplicon is reduced at every cycle and eventually you will hit the autofluorescent noise floor. With really bright amplicons you will get more ligation cycles.
+
+This is infact one of the primary motivations behind the interrogation scheme of PRICKLi since it is very well known that there is a particular drop in signal to noise after ligation cycle 4, standard PRICKli sequencing using 11 bases makes sure that all of those cycles are of high quality putting less pressure on having a crisp and clean sample.
+
+Having said that it is also important to understand that when the tempate is stripped from the sequencing primer it is like erasing all previous history and restarting again. Therefore the ligation cycle 1 on each primer round is usually the best signal to noise ratio.
+
+**_Shape_**. Apart from brightness in situ amplicon shape is an important observation that will tell you how good the amplicons were crosslinked. Amino-allyl-dUTPs are incorporated into the amplicon and crosslinked using BSPEG9. The use of aa-dUTP alone makes the amplicon much more compact than what other more traditional in situ sequencing assay would do just using dNTP (see [Kim et al. 2018](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6099487/ "Shaping Rolling Circle Amplification Products into DNA Nanoparticles by Incorporation of Modified Nucleotides and Their Application to In Vitro and In Vivo Delivery of a Photosensitizer") for a really nice outline on the role of aa-dUTP) but a lot of the shape will also be determined by crosslinking. Amine-reactive crosslinkers have the added benefit that they can be irreversibly crosslinked and therefore heat-resistant unlike PFA that would not tolerate the repeated elevated temperatures of primer stripping. 
+
+The bad thing with _N_-hydroxysuccinimide (NHS) ester reactive groups is that they will easily hydrolyse in water so from the time BSPEG9 is dissolved into DMSO unless store desiccated at -20°C it will go bad within 2-3 weeks. You will know that it has gone bad by the shape of the amplicons that will start looking fuzzy and not round and nice.
+If the amplicon would not be crosslinked properly they will start falling apart when stored in room temperature and they are much more easily damaged by lasers during imaging. 
+
+So starting with round, bright and small amplicons is preferable, since it will make your life much easier down the line.
+
+### Fluorescent adapter stripping and sequencing primer hybridization.
+
+To strip away the fluorescent adapter take out an aliquot of the 80% (vol/vol) 0.01% triton stripping buffer and heat it at 80°C on a heatblock for atleast 5 mins.
+
+The first time you perform stripping it is usually a good excersive to turn on the microscope and image the amplicons in live mode while you ad the hot stripping buffer onto the sample. You will directly see how all the fluorescent signal disapears within a second.
+
+To make sure that the primer is properly removed adhere to the following stripping protocol:
+
+Incubate the sample four times 5 min each in 200 ul of stripping buffer, preheated to 80 °C.
+Wash the sample two times under running 10 ml 2xSSC dispensed through automatic fluidics or a simple 10 ml pipettor while simultaneously aspirating the sample.
+
+### Forward ligation.
+
+### Reverse ligation.
+
+### Image.
+
+### Cleave.
+
+### Religate.
+
+### Strip.
+
 
 ## Pitfalls of in situ sequencing.
 
@@ -29,7 +114,19 @@ If one is working with heavily damaged hydrolysed samples then working with PRIC
 - Ligation on forward end fails with bright nuclear signal.
 - Ligation of reverse end works.
 
-What happened here? The explanation is fairly straightforward and simple. The polymerase used to amplify the circular cDNA into amplicons will also act on any remaining gDNA and because phi29 has such good strand displacement it will displace strands of gDNA. The displaced strands will have directionality so they will be displaced primarly at the 5'end where they also will have free 5'phos group for T4 DNA ligase to act on. What can then happen is that the free 5'phos end will be splinted by two probes and T4 DNA ligase will irreversibly ligate the fluorescent probe onto the gDNA with no base specificity and because Endo V needs double-stranded substrate it will be impossible to cleave away the probe. This will mainly happen at the forward end reads and not the reverse end. In highly hydrolysed samples one will also see it on the reverse end.
+What happened here? 
+<object data="/assets/img/splinted_ligation.svg" type="image/svg+xml" id="splinted_ligation" width="100%" height="100%"></object>
+
+
+The explanation is fairly straightforward and simple. 
+
+The polymerase used to amplify the circular cDNA into amplicons, phi29 DNA polymerase, will also act on any remaining gDNA and because phi29 has such good strand displacement it will displace strands of gDNA. 
+
+The displaced strands will have directionality so they will be displaced primarly at the 5'end where they also will have free 5'phos group for T4 DNA ligase to act on. What can then happen is that the free 5'phos end will be splinted by two probes and T4 DNA ligase will irreversibly ligate the fluorescent probe onto the gDNA with no base specificity and because Endo V needs double-stranded substrate it will be impossible to cleave away the probe. 
+
+This will mainly happen at the forward end reads and not the reverse end. In highly hydrolysed samples one will also see it on the reverse end. 
+
+It is important to distinguish this nuclear background from that of a failed ligation. <br>In a failed ligation T4 DNA ligase will not ligate, most likely because of old T4 DNA ligase buffer (ATP freeze thaw sensitivity), this can happen when buffer is more than a year old in such cases you would see the probes getting soaked up in the nucleus but this more resembles traditional weak autofluorescence where in the case of splinted gDNA ligation on hydrolyzed gDNA the signal would be amazingly much brighter than anything else in the sample.
 
 
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -248,7 +345,7 @@ What happened here? The explanation is fairly straightforward and simple. The po
 </g>
 </svg>
 
-To avoid this issue when working with samples that have undergone hydrolysis (especially if gDNA digestion is not complete or hydrolysis was primarily done before RCA) simply treat the sample with a combination of [CIP](https://www.neb.com/products/m0525-quick-cip "CIP") and [TdT](https://www.neb.com/products/m0315-terminal-transferase "TdT") together with [acyclovir](https://www.neb.com/products/n0460-acyclonucleotide-set "acyclovir")  in Quick CIP buffer. CIP will remove free phosphate groups and TdT will tail free 3'OH ends with a single acyclonucleotide. One hour incubation is usually more than sufficient.
+To avoid this issue when working with samples that have undergone hydrolysis (especially if gDNA digestion is not complete or hydrolysis was primarily done before RCA) simply treat the sample with a combination of [CIP](https://www.neb.com/products/m0525-quick-cip "CIP") and [TdT](https://www.neb.com/products/m0315-terminal-transferase "TdT") together with [acyclovir](https://www.neb.com/products/n0460-acyclonucleotide-set "acyclovir")  in Quick CIP buffer. CIP will remove 5' phosphate groups and TdT will tail free 3'OH ends with a single acyclonucleotide. One hour incubation is usually more than sufficient.
 
 | Reagent | Vendor | Amount | Concentration |
 | :--- | :--- | :--- |  :--- | 
@@ -260,6 +357,17 @@ To avoid this issue when working with samples that have undergone hydrolysis (es
 
 In particularly bad samples this small trick can be applied just after stripping to ensure that any newly hydrolysed or displaced parts do not get labeled. This is especially true if the sin situ amplicon itself would start to degrade as can happen if the user has a microscope where excessive light power is used. A good workflow we have started to implement is simply to perform imaging of the fluorescent sequencing adapter to check the library quality and image any additional fluorophores like fluorescent proteins or antibody staining. With several samples this usually takes an entire day so at the end of the day take the best samples that you intend to continue with and strip the fluorescent sequencing adapter with formamide and wash. After that leave the sample in 37°C overnight with the CIP + TdT/acyclovir cocktail. In the morning when you come in the sample is then ready for some quick washes and hybridization of the first sequencing primer followed by ligation.
 
+## Difference between cPAL, SOLiD and PRICKLi.
+
+The most basic scheme of sequencing by ligation was commercialized by Complete Genomics and is called Combinatorial Probe-Anchor Ligation (cPAL) sequencing.
+In cPAL a sequencing primer known as the anchor primer is extended by ligation of a set of competing probes interrogating a specific position away from the ligation junction. Each base position is represented by a specific fluorescent probe. This scheme is straighforward but requires 4 x N probes to be synthesized, where N is number of positions interrogated. Each ligation cycle extends a new sequencing primer so after each image is taken the entire sequencing primer is stripped and a new primer is hybridized.
+
+SOLiD (Sequencing by Oligonucleotide Ligation and Detection) was a method commercialized by Applied Biosystems that overcame the issue by being able to extend the same sequencing primer sequentially through repeated ligation cycles. The way SOLiD overcame this was to make use of a chemically cleavable phosphoramidite probe that could be cleaved with a mild oxidizing agent such as aqueous silver nitrate leaving free 5'PO4 ends for subsequent ligation cycles to extend. In this scheme it is common to seperate the concept of a round to mean hybridization round and the concept of cycle to mean ligation cycle. SOLiD would achieve reads by extending and cleaving a single sequencing primer and then once the highest read length was achieved the entire extended primer complex would be stripped away and a new _recessed_ sequencing primer would be hybridized and extended.
+
+Traditionally five hybridization rounds was performed with seven ligation cycles giving a read length of 5 x 7 = 35bp.
+
+PRICKLi is simply an enzymatic way to achieve similar SBL primer extension, cleave, re-ligate as SOLiD but with using cheap off-shelf oligonucleotide modifications. 
+The added twist is the trick to piggy back on the improved confocal imaging and do multiple base calls by color multiplexing similar like Illumina NextSeq but instead of saving on laser cost the free fluorescent channels are used to encode directionality since SBL, unlike SBS, can sequence from both ends of the primer.
 
 
 
