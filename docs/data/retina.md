@@ -1,6 +1,6 @@
 ---
 layout: page
-title: drosophia retina
+title: Drosophila retina
 permalink: /retina/
 parent: Data
 nav_order: 4
