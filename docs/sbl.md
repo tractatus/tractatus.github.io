@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sequencing by ligation
-permalink: /sbl/
+permalink: protocol/sbl/
 ---
 
 <h1> Sequencing by ligation (SBL)</h1>
