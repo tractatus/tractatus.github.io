@@ -10,7 +10,7 @@ has_children: true
 {: .no_toc }
 
 
-Available data to naviagte and examine.
+Available data to navigate and examine.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
