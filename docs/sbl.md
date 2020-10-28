@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sequencing by ligation
-permalink: protocol/sbl/
+permalink: /sbl/
 ---
 
 <h1> Sequencing by ligation (SBL)</h1>
@@ -85,16 +85,66 @@ So starting with round, bright and small amplicons is preferable, since it will 
 
 To strip away the fluorescent adapter take out an aliquot of the 80% (vol/vol) 0.01% triton stripping buffer and heat it at 80°C on a heatblock for atleast 5 mins.
 
-The first time you perform stripping it is usually a good excersive to turn on the microscope and image the amplicons in live mode while you ad the hot stripping buffer onto the sample. You will directly see how all the fluorescent signal disapears within a second.
+The first time you perform stripping it is usually a good exercise to turn on the microscope and image the amplicons in live mode while you ad the hot stripping buffer onto the sample. You will directly see how all the fluorescent signal disappears within a second.
 
 To make sure that the primer is properly removed adhere to the following stripping protocol:
 
 Incubate the sample four times 5 min each in 200 ul of stripping buffer, preheated to 80 °C.
-Wash the sample two times under running 10 ml 2xSSC dispensed through automatic fluidics or a simple 10 ml pipettor while simultaneously aspirating the sample.
+Between each strip wash the sample two times under running 10 ml 2xSSC dispensed through automatic fluidics or a simple 10 ml pipettor while simultaneously aspirating the sample.
+
+### PRICKLi probe handling
+
+When handling fluorescently labeled oligonucleotides it is important to let them thaw completely and then heat them up for 2 min at 80°C and let them cool down to room temperature. The heating reduces issues of fluorophores forming precipitates or clumps that later will appear as 3-5 µm bright fluorescent clumps in the tissue and are very hard to wash away.
+
+Further more, to avoid repeated freeze thaw cycles calculate how much of the probes you need and then prepare single aliquots in PCR tubes and store in 4 degree or room temperature protected from light while you are performing the sequencing run. 100 µM stocks of the PRICKLi probes should be stored in -80°C and then take out the full amount you need and mix together the three probes for each direction (forward and reverse) into equimolar concentrations.
+
+If you are to perform 11 base sequencing (6 image cycles) then first prepare these two run stocks:
+
+**Forward PRICKli probes for 6 cycles**
+
+| Amount | Reagent | Final concentration |
+| 11 µl  | 100 µM FR (A/G) FITC fwd | 33.3 µM |
+| 11 µl | 100 µM FR (T/G) TxRd fwd | 33.3 µM |
+| 11 µl | 100 µM FR (C) NA fwd | 33.3 µM |
+
+**Reverse PRICKli probes for 6 cycles**
+
+| Amount | Reagent | Final concentration |
+| 11 µl  | 100 µM RR (A/G) Cy5 rev | 33.3 µM |
+| 11 µl | 100 µM RR (T/G) Cy3 rev | 33.3 µM |
+| 11 µl | 100 µM RR (C) NA rev | 33.3 µM |
+
+Then dispense the two probes with 5 µl each into 6 different PCR tubes (one for each cycle). In the end you should have 6 x 2 (cycle x direction) PCR tubes with 5 µl in each.
+
+Also aliquot for single use the T4 DNA ligase buffer to avoid repeated freeze thaw cycles (ATP in buffer), 20 µl each in 12 PCR tubes and store in -20°C.
 
 ### Forward ligation.
 
+A single 200 µl ligation reaction would be composed of this.
+
+| Amount | Reagent | Final concentration |
+| 165 µl  | Nuclease-free water | NA |
+| 20 µl | 10× T4 DNA ligase buffer | 1× |
+| 10 µl | T4 DNA ligase, 120 U/μl | 6 U/μl |
+| 5 µl | 100 µM Forward PRICKLi probes | 2.5 μM |
+
+Pipette up and down to make sure the probes are mixed then aspirate the sample and ad the ligation mix to the sample and incubate for 45 min at room temperature.
+
+After 45 min wash with 10 ml of 2xSSC three times for 5 min each.
+
 ### Reverse ligation.
+
+A single 200 µl ligation reaction would be composed of this.
+
+| Amount | Reagent | Final concentration |
+| 165 µl  | Nuclease-free water | NA |
+| 20 µl | 10× T4 DNA ligase buffer | 1× |
+| 10 µl | T4 DNA ligase, 120 U/μl | 6 U/μl |
+| 5 µl | 100 µM Reverse PRICKLi probes | 2.5 μM |
+
+Pipette up and down to make sure the probes are mixed then aspirate the sample and ad the ligation mix to the sample and incubate for 45 min at room temperature.
+
+After 45 min wash with 10 ml of 2xSSC three times for 5 min each.
 
 ### Image.
 
