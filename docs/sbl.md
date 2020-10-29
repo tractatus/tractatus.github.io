@@ -148,7 +148,32 @@ After 45 min wash with 10 ml of 2xSSC three times for 5 min each.
 
 ### Image.
 
+For successful imaging there are essentially two things that has to be considered.
+
+1) You need to equilize the histograms of the fluorescent channels so that they are matched by combining laser power and exposure time.
+2) You want all amplicons represented and have a large dynamic range of the histogram but not so you saturate too many pixels.
+
+These tasks can be done automatically by use of histogram equilibration algorithm (see one that we use for post-acquisition image processing).
+But if you are not allow to program the microscope either becaus eof shared resource or vendor restrictions then this can ofcourse be done manually.
+
+To do this manually it is essential to switch histogram view of the image to log-scale. Adjust exposure time first so that all the histogram between the four channels look similar. In later cycles adjusting exposure time alone might not be enough since the exposure time might be too long then increase laser power. As a rule of thumb always try to adjust exposure time before increasing laser power since repeated laser damage to in situ amplicons will destroy them. 
+
+Because imaging needs to be adjusted at each cycle we advice that a seperate tissue or part of the tissue or cells in the same well as the sample of interest are used to calibrate the imaging parameters rather then expsoing the intended sample to unnecessary light exposure.
+
 ### Cleave.
+
+NEB4 buffer is a critical buffer to be able to cleave. It can preferable be used to wash before imaging and be the buffer the imaging is performed in. 
+RNase H2 can have reduced ability to cleave if Mg2+ are sequestred and its activity can be improved by including 0.1% Triton X-100 into NEB4 buffer.
+
+As an excersise we highly recommend the user to first cleave forward using Endo V followed by RNase H2 cleaving to see that the two systems work independently and then try to cleave with both enzymes in NEB4 buffer to see that simultaneous cleaving works even better.
+
+Make sure to preincubate the sample in NEB4 buffer before starting the cleaving reaction.
+
+| Amount | Reagent | Final concentration |
+| 165 µl  | Nuclease-free water | NA |
+| 20 µl | 10× T4 DNA ligase buffer | 1× |
+| 10 µl | T4 DNA ligase, 120 U/μl | 6 U/μl |
+| 5 µl | 100 µM Reverse PRICKLi probes | 2.5 μM |
 
 ### Religate.
 
