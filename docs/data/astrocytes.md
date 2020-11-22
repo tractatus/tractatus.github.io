@@ -11,7 +11,7 @@ Please check back for all data to be deposited. Im updating the functionality an
 Click on image to open spot viewer in seperate tab.
 
 <div class="video-container">
-<a href="https://present.histo.io" target="_blank">
+<a href="http://present.histo.io" target="_blank">
 <img src="/assets/img/webinterface.png">
 </a>
 </div>
