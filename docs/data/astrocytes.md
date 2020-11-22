@@ -8,8 +8,10 @@ nav_order: 4
 
 Please check back for all data to be deposited. Im updating the functionality and content continually.
 
-Wait for amplicons to be loaded...
+Click on image to open spot viewer in seperate tab.
 
 <div class="video-container">
-<iframe src="http://present.histo.io" frameBorder="0" width="100%" height="500px"></iframe>
+<a href="https://present.histo.io">
+<img src="/assets/img/webinterface.png">
+</a>
 </div>
