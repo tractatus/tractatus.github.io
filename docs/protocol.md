@@ -411,11 +411,169 @@ To avoid BSPEG9 to react with enzyme in subsequent steps quench the reaction by 
 
 ### Tissue or cell lysis `10-20 min`
 
-### Pulldown, second strand synthesis, and excess pulldown primer degradation.
+To lyse the tissue use hot alkaline lysis. As with any hot-alkaline DNA extraction method too long incubation will result in heavily fragmented DNA. Therefore the exact incubation time might need to be optimized for the tissue in mind. Pool several samples together and evaluate fragmentation as a function incubation time on 1% agarose gel.
+
+MDA cant initiate if fragments are shorter than 1-2 Kb. 
+Tn5 tagmentation followed by PCR wont work if fragments are shorter than 600 bp.
+
+To make stock of the lysis buffer.
+
+**Lysis buffer stock**
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 2.8 g  | KOH (56.11 g/mol) |  CHP-300, Boston BioProducts | 200 mM |
+| 1540 mg | DTT (154.25 g/mol) | BP-21504, BroadPharma | 40 mM |
+| 20 µl | EDTA | BP-21504, BroadPharma | 5 mM |
+| 250 ml | Nuclease-free water | BP-21504, BroadPharma |  |
+
+Which will give the final lysis buffer 200mM KOH, 40mM DTT, 5mM EDTA.
+Store frozen in aliquots.
+
+**Neutralization buffer stock**
+
+| Amount | Reagent | Vendor | Concentration |
+| :--- | :--- | :--- |  :--- | 
+| 18.15 g  | Tris |  CHP-300, Boston BioProducts | 600 mM |
+| 244 ml | Nuclease-free water |  | NA |
+| ~6 ml | HCl |  | ~288 mM |
+
+
+Dissolve Tris in 244 ml of nuclease-free water.
+Adjust pH to 7.5 by buffering with 12M HCl, ad 1 ml at a time and measure pH. Fill up to 250 ml with nuclease-free water to create 7.5 pH.
+
+<span class="label label-green">Cell culture:</span> Aspirate the well and ad 20-40 ul of lysis buffe ronto the cells and use a 20 µl pipette tip to scratch the cells of the bottom. Pipette up and down between scratches and then take the entire solution with the 20 µl pipette and ad into an Eppendorf tube.
+
+Place on 95°C heat block for 10 min incubation followed by adding equal amount (20-40 ul) of neutralization buffer and a 10 min incubation on ice. Store the lysate in -80°C until next step.
+
+<span class="label label-green">Drosophila tissue:</span> Clean two Dumont #5 forceps (0209-5-PO) with DNAzap (AM9890, ThermoFisher), or equivalent, and wash with 70% ethanol and wipe dry with a kimtech wipe. 
+
+Under a dissection microscope poke with the forcept under the edge of the tissue to carefully lift it off the coverslip. When the whole mount tissue is no longer attached to the coverslip then take a 20 µl pipette and carefully pipette the tissue into the pipette tip without having it stick to the tip. Ad the tissue into 20 µl of lysis buffer and incubate at 20 min on 95°C. 
+
+Visually inspect the sample to make sure the tissue has been lysed, if not vortex gently and incubate until the sample is no longer visible. Ad 20 µl neutralization buffer and incubate on ice for 10 min. Store the lysate in -80°C until next step.
+
+### Second strand synthesis, and excess pulldown primer degradation and pulldown.
+
 
 ### Extraction and amplification of in situ amplicons from the tissue
 
 ### NGS library prep using Nextera FLEX
+
+### Library normalization
+<link type="text/css" href="https://getbootstrap.com/1.0.0/assets/css/bootstrap-1.0.0.min.css">
+<div class="container mt-5" lang="en-US">
+<div class="row">
+<div class="col-3 row-heading">
+Library
+</div>
+<div class="col row-heading">
+Concentration (ng/µl)
+</div>
+<div class="col row-heading">
+Average fragment size (bp)
+</div>
+<div class="col row-heading">
+Dilute (µl)
+</div>
+<div class="col row-heading">
+in water (µl)
+</div>
+</div>
+
+<div class="row">
+<div class="col-3">
+1. <input type="text" value="sample A" class="sampleName" id="sample_name1"/> <span id="status1" class="report"></span>
+</div>
+<div class="col">
+<input type="number" value="0" class="qty" id="qty_conc1" step="0.1"/>
+</div>
+<div class="col">
+<input type="number" value="600" id="qty_isize1"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_amount1"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_dilute1"/>
+</div>
+
+</div>
+
+<div class="row">
+<div class="col-3">
+2. <input type="text" value="sample B" class="sampleName" id="sample_name1"/>
+</div>
+<div class="col">
+<input type="number" value="0" class="qty" id="qty_conc"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="qty_isize"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_amount"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_dilute"/>
+</div>
+
+</div>
+
+<div class="row">
+<div class="col-3">
+3. <input type="text" value="sample C" class="sampleName" id="sample_name1"/>
+</div>
+<div class="col">
+<input type="number" value="0" class="qty" id="qty_conc"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="qty_isize"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_amount"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_dilute"/>
+</div>
+
+</div>
+
+<div class="row">
+<div class="col-3">
+4. <input type="text" value="sample D" class="sampleName" id="sample_name1"/>
+</div>
+<div class="col">
+<input type="number" value="0" class="qty" id="qty_conc"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="qty_isize"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_amount"/>
+</div>
+<div class="col">
+<input type="number" readonly value="0" id="comp_dilute"/>
+</div>
+
+</div>
+
+<div class="row my-4">
+<div class="col-6 text-right total">
+Target concentration (nM)
+</div>
+<div class="col-2 target-conc">
+<input type="number" value="4" class="qty" id="qty_concentration"/>
+<!--- <span id="total_value">20</span> -->
+</div>
+<div class="col-2 text-right total">
+Library volume (µl)
+</div>
+<div class="col-2 total-val">
+<input type="number" value="20" class="qty" id="qty_volume"/>
+<!--- <span id="total_value">20</span> -->
+</div>
+</div>
+
+</div>
 
 ### NGS sequencing on MiSeq
 
